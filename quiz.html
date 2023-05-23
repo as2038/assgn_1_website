@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+       <head>
+              <title>Swans</title>
+              <link rel="stylesheet" type="text/css" href="style.css">
+       </head>
+       <body>
+              <div class="container">
+              <header id="main-header">
+                  <h1>Swans</h1>
+              </header>
+              <ul class="grid-container"> 
+                <li><a href="index.html"> Home </a>
+                <li><a href="mute.html"> Mute </a></li>
+                <li><a href="trumpeter.html"> Trumpeter </a></li>
+                <li><a href="tundra.html"> Tundra </a></li>
+                <li><a href="quiz.html"> Quiz </a></li>
+              </ul>
+              
+              
+              <img src="tundraSwanPhoto.jpg" width="200" height="200">
+              <img src="muteSwanPhoto.jpg" width="200" height="200">
+              <img src="trumpeterSwanPhoto.jpeg" width="200" height="200">
+              
+              <form id="question">
+                <label> 1. </label>
+                <input type="text" id="answer1"> 
+                <label> 2. </label>
+                <input type="text" id="answer2"> 
+                <label> 3. </label>
+                <input type="text" id="answer3">
+                <br>
+                <input class="btn" type="submit" value="Check Answers">
+                <div class="msg">-</div>
+              </form>
+
+              <script>
+                var myForm = document.querySelector('#question');
+                var answer1Input = document.querySelector('#answer1');
+                var answer2Input = document.querySelector('#answer2');
+                var answer3Input = document.querySelector('#answer3');
+                var msg = document.querySelector('.msg');
+
+                myForm.addEventListener('submit', onSubmit);
+                function onSubmit(e) {
+                  e.preventDefault();
+                  if((answer1Input.value === 'Tundra' || answer1Input.value === 'tundra')
+                  && (answer2Input.value === 'Mute' || answer2Input.value === 'mute')
+                  && (answer3Input.value === 'Trumpeter' || answer3Input.value === 'trumpeter')) {
+                    msg.classList.remove('incorrect');
+                    msg.classList.add('correct');
+                    msg.innerHTML = 'Correct!';
+                  } else {
+                    msg.classList.remove('correct');
+                    msg.classList.add('incorrect');
+                    msg.innerHTML = 'Wrong!';
+                  }
+                }
+              </script>
+              
+              
+              </div>    
+       </body>
+</html>
